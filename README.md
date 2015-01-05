@@ -12,9 +12,9 @@
 rails generate model post title:string content:text
 ```
 
-> 講個小秘訣：
-> 也可以打 rails g model post title:string content:text 唷！
-> rails g 就是 rails generate 的縮寫
+> 講個小秘訣：</br>
+> 想偷懶一點也可以打 `rails g model post title:string content:text` 唷!</br>
+> rails g 就是 rails generate 的縮寫啦!
 
 為什麼一個是 string 另外一個要用 text 呢？ 因為 String 這個屬性預設只有 255 個字, 而 text 長度可以是 65536 個, 如想知道更詳細的可以看下表(一).
 
@@ -36,7 +36,19 @@ rails generate model post title:string content:text
 | :time          | TIME                                     | -                                                                     |
 | :timestamp     | DATETIME                                 | -                                                                     |
 
+接著我們就可以透過 `rake db:migrate` 來建立 table 了, Rails 預設是使用 SQLite3, 因此我們可以在 `db/` 下面看到 `development.sqlite3` 這個檔案囉.
 
+> 小叮嚀:</br>
+> 作者第一次建立 model 很天真的打了以下的指令：
+> ```
+> rails g model post id:primary_key title:string content:text
+> ```
+> 結果在 rake db:migrate 的時候炸掉了!!錯誤訊息如下:</br>
+> ```
+> StandardError: An error has occurred, this and all later migrations canceled:
+> you can't redefine the primary key column 'id'. To define a custom primary key, pass { id: false } to create_table
+> ```
+> 原來是 rails 的 model 預設就有 id 這個 primary_key 囉!! 如果想知道修改這樣預設的 id 可以參考這篇[如何修改 model 預設的 id]()
 
 
 
