@@ -8,6 +8,10 @@
 rails generate model post title:string content:text
 ```
 
+> 講個小秘訣：
+> 也可以打 rails g model post title:string content:text 唷！
+> rails g 就是 rails generate 的縮寫
+
 為什麼一個是 string 另外一個要用 text 呢？ 因為 String 這個屬性預設只有 255 個字, 而 text 長度可以是 65536 個, 如想知道更詳細的可以看下表(一).
 
 
@@ -27,6 +31,8 @@ rails generate model post title:string content:text
 | :text          | TINYTEXT, TEXT, MEDIUMTEXT, or LONGTEXT2 | :limit => 1 to 4294967296 (default = 65536)2                          |
 | :time          | TIME                                     | -                                                                     |
 | :timestamp     | DATETIME                                 | -                                                                     |
+
+
 
 
 
