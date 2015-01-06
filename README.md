@@ -48,7 +48,7 @@ rails generate model post title:string content:text
 > StandardError: An error has occurred, this and all later migrations canceled:
 > you can't redefine the primary key column 'id'. To define a custom primary key, pass { id: false } to create_table
 > ```
-> 原來是 rails 的 model 預設就有 id 這個 primary_key 囉!! 如果想知道修改這樣預設的 id 可以參考這篇[如何修改 model 預設的 id]()
+> 原來是 rails 的 model 預設就有 id 這個 primary_key 囉!! 如果想知道修改這樣預設的 id 可以參考這篇([如何修改 model 預設的 id](notes/change_model_deafault_id.md)).
 
 
 
