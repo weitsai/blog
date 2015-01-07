@@ -218,6 +218,36 @@ localhost:3000/post/20/edit
 localhost:3000/post/20/edit
 ```
 
+* 更新一篇文章 (直的儲存 DataBase)
+  * Http Verbs: `PATCH`
+  * URI Pattern: `/post/:id(.:format)`
+
+```
+localhost:3000/post/:id(.:format)
+```
+
+  * Http Verbs: `PUT`
+  * URI Pattern: `/post/:id(.:format)`
+
+```
+localhost:3000/post/:id(.:format)
+```
+
+* 顯示某一篇文章
+  * Http Verbs: `GET`
+  * URI Pattern: `/post/:id(.:format)`
+
+```
+localhost:3000/post/20/
+```
+* 刪除某一篇文章
+  * Http Verbs: `DELETE`
+  * URI Pattern: `/post/:id(.:format)`
+
+```
+localhost:3000/post/20/
+```
+
 
 ## 參考資料
 * [表(一) - Migration 轉 MySQL 的轉換表及長度說明](https://www.packtpub.com/books/content/working-rails-%E2%80%93-activerecord-migrations-models-scaffolding-and-database-completion)
