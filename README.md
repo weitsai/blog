@@ -5,6 +5,16 @@
 3. 為這個 Blog 系統加上使用者登入功能 (用 Devise 實作）
 
 ## 何謂 MVC ？
+
+## 建立一個 Rilas Project
+```
+rails new blog
+```
+
+```
+rails server
+```
+
 ## 建立放文章的 model
 我們需要 title 和 conent 兩個欄位, 因此我們透下面指令建立 model 為 post, 欄位有 title 和 content
 
@@ -97,22 +107,63 @@ CRUD 是 Create, Read, Update and Delete 的縮寫, 絕大多數軟體只要有�
 
   2.1.5 :001 > post2 = Post.new( :title => "測試文章標題", :content => "測試文章內容").save
    => #<Post id: nil, title: "測試文章標題", content: "測試文章標題", created_at: nil, updated_at: nil>
-  2.1.5 :002 > post2.save
-     (0.2ms)  begin transaction
-    SQL (0.5ms)  INSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "123"], ["content", "456"], ["created_at", "2015-01-06 02:59:36.811648"], ["updated_at", "2015-01-06 02:59:36.811648"]]
-     (0.9ms)  commit transaction
-   => true
   ```
 
 * Rrad
+  * 尋找標題是 "測試文章標題" 的文章
+    * 第一種方式
+    ```
+    rails c
+
+    2.1.5 :001 > Post.where( :title == "測試文章標題" ) # 找出標題是「測試文章標題」的
+      Post Load (3.2ms)  SELECT "posts".* FROM "posts"
+     => #<ActiveRecord::Relation [#<Post id: 1, title: "測試文章標題", content: "測試文章內容, created_at: "2015-01-06 02:59:36", updated_at: "2015-01-06 02:59:36">]>
+    ```
+
+    * 第二種方式
+    ```
+    rails c
+
+    Post.where( title:"測試文章標題")
+    ```
+
+  * 尋找日期大於等於 2014 的文章
   ```
   rails c
 
-
+  2.1.5 :001 >   Post.where("created_at >= ?", Time.mktime(2014)) # 這樣的方式會把 Time.mktime 帶入 ? 之中
+  Post Load (0.2ms)  SELECT "posts".* FROM "posts" WHERE (created_at >= '2013-12-31 16:00:00.000000')
+ => #<ActiveRecord::Relation [#<Post id: 1, title: "123", content: "456", created_at: "2015-01-06 02:59:36", updated_at: "2015-01-06 02:59:36">]>
   ```
 
 * Update
+  * 找出 id = 2 的資料並且更改他的標題
+  ```
+  rails c
+
+  2.1.5 :001 > p = Post.find(2) # 找出 id = 2 的資料
+  Post Load (0.2ms)  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+ => #<Post id: 2, title: "測試文章標題", content: "測試文章內容", created_at: "2015-01-07 11:20:54", updated_at: "2015-01-07 11:20:54">
+  2.1.5 :002 > p.title
+   => "測試文章標題"
+  2.1.5 :003 > p.update(:title => 'update title test') # 更改 title 為 update title test
+     (0.2ms)  begin transaction
+    SQL (0.4ms)  UPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "update title test"], ["updated_at", "2015-01-07 11:35:36.475763"], ["id", 2]]
+     (0.8ms)  commit transaction
+   => true
+  2.1.5 :004 > p.title
+   => "update title test"
+  ```
+
 * Delete
+  * 刪除第一筆資料
+
+  ```
+  rails c
+
+  post = Post.find(1)
+  post.destroy
+  ```
 
 
 
