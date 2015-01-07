@@ -226,6 +226,7 @@ localhost:3000/post/20/edit
 localhost:3000/post/:id(.:format)
 ```
 
+* 更新一篇文章 (直的儲存 DataBase)
   * Http Verbs: `PUT`
   * URI Pattern: `/post/:id(.:format)`
 
