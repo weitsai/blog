@@ -16,8 +16,8 @@ rails new blog
 rails server
 ```
 
-## 建立放文章的 model
-我們需要 title 和 conent 兩個欄位, 因此我們透下面指令建立 model 為 post, 欄位有 title 和 content
+## Model
+現在我們需要 title 和 conent 兩個欄位, 用來存放文章的標題和內容, 因此我們透下面指令建立 model 為 post, 欄位有 title 和 content
 
 ```
 rails generate model post title:string content:text
@@ -61,7 +61,7 @@ rails generate model post title:string content:text
 > ```
 > 原來是 rails 的 model 預設就有 id 這個 primary_key 囉!! 如果想知道修改這樣預設的 id 可以參考這篇([如何修改 model 預設的 id](notes/change_model_deafault_id.md)).
 
-## rails console 介紹
+### Rails Console 介紹
 如果你有學過 Ruby 應該會知道有 `irb` 這樣的指令, 他提供互動模式讓我們可以在裡面寫 Ruby, 雖然作者都拿他來當計算機而已, 不過 Rails 也提供他專屬的 `irb`, 使用  `rails console` 這個指令就可以進入囉!!
 
 * 一般模式 - 他可以將使用 model 來建立資料, 並且真的存到資料庫之中.
@@ -79,7 +79,7 @@ rails console --sandbox
 > rails t 就是 rails console 的縮寫啦!
 
 
-## CRUD
+### CRUD
 CRUD 是 Create, Read, Update and Delete 的縮寫, 絕大多數軟體只要有用到資料庫, 基本上就一定會用到這四大基本操作, 因此接下來我們透過剛剛學到的 rails console 來學習 CRUD 吧~
 
 * Create
