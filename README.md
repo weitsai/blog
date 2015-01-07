@@ -165,6 +165,57 @@ CRUD 是 Create, Read, Update and Delete 的縮寫, 絕大多數軟體只要有�
   post.destroy
   ```
 
+## Controller
+今天要介紹 Controller 之前我們應該要先瞭解, Rails 開發者大多習慣把 API 設計成 [RESTful](https://ihower.tw/blog/archives/1542), 那我們就先來簡單介紹一下 RESTful 究竟是什麼吧.
+
+### RESTful
+介紹 RESTful 之前我們必須要先提到 REST, 其實簡單來說 REST 就是同一個 API 透過不同的 HTTP Verbs 和傳入的參數不同來使用不同的功能.
+
+以下做個簡單的範例, 假設我們的服務在 `localhost:3000`, 接下來我們要提供文章相關的服務, 那 API 會像下面這樣設計.
+
+* 顯示所有文章
+  * Http Verbs: `GET`
+  * URI Pattern: `/post(.:format)`
+
+```
+localhost:3000/post/
+```
+
+* 新增一篇文章(真的存進 DataBase)
+  * Http Verbs: `POST`
+  * URI Pattern: `/post(.:format)`
+
+```
+localhost:3000/post/
+```
+
+* 打開新增文章的頁面
+  * Http Verbs: `GET`
+  * URI Pattern: `/post/new(.:format)`
+
+```
+localhost:3000/post/new
+```
+
+* 前往編輯某一篇文章
+  * Http Verbs: `GET`
+  * URI Pattern: `/post/:id/edit(.:format)`
+
+以下範例是前往第二十筆的文章進行更新
+
+```
+localhost:3000/post/20/edit
+```
+
+* 前往編輯某一篇文章
+  * Http Verbs: `GET`
+  * URI Pattern: `/post/:id/edit(.:format)`
+
+以下範例是前往第二十筆的文章進行更新
+
+```
+localhost:3000/post/20/edit
+```
 
 
 ## 參考資料
