@@ -253,4 +253,5 @@ localhost:3000/post/20/
 ## 參考資料
 * [表(一) - Migration 轉 MySQL 的轉換表及長度說明](https://www.packtpub.com/books/content/working-rails-%E2%80%93-activerecord-migrations-models-scaffolding-and-database-completion)
 * [手工打造 CRUD 應用程式](https://ihower.tw/rails4/basic.html)
+* [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 * [重新認識 HTTP 請求方法](http://www.ithome.com.tw/node/80062)
