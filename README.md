@@ -110,7 +110,7 @@ CRUD 是 Create, Read, Update and Delete 的縮寫, 絕大多數軟體只要有�
    => #<Post id: nil, title: "測試文章標題", content: "測試文章標題", created_at: nil, updated_at: nil>
   ```
 
-* Rrad
+* Read
   * 尋找標題是 "測試文章標題" 的文章
     * 第一種方式
     ```ruby
@@ -255,3 +255,4 @@ localhost:3000/post/20/
 * [手工打造 CRUD 應用程式](https://ihower.tw/rails4/basic.html)
 * [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 * [重新認識 HTTP 請求方法](http://www.ithome.com.tw/node/80062)
+* [Ruby on Rails guides](http://guides.rubyonrails.org/getting_started.html)
