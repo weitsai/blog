@@ -1,0 +1,18 @@
+<h1>Post List</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <%= link_to 'New Post', new_post_path() %>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: '確定要刪除這篇文章?' } %></td>
+    </tr>
+  <% end %>
+</table>
